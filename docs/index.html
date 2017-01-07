@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>shaf-timeago</title>
+  <script src="https://unpkg.com/@webcomponents/custom-elements@1.0.0-alpha.3"></script>
+  <script src="https://unpkg.com/shaf-timeago@1.0.0"></script>
+</head>
+<body>
+  <div style="margin: 48px;">
+    <h1>shaf-timeago</h1>
+    <p>View source to see usage.</p>
+
+    <h2>Example 1</h2>
+    <shaf-timeago>
+      <time>2017-01-07T21:23:35.587Z</time>
+    </shaf-timeago>
+
+    <h2>Example 2</h2>
+    <shaf-timeago>
+      <time id="example2"></time>
+      <!-- the script below populates <time> above with an ISO string -->
+    </shaf-timeago>
+    <script>
+    var _30secondsago = new Date(new Date().getTime() - (1 * 30000)).toISOString()
+    window.example2.textContent = _30secondsago
+    </script>
+
+    <h2>Example 3</h2>
+    <shaf-timeago>
+      <time id="example3"></time>
+    </shaf-timeago>
+    <script>
+    var _in30seconds = new Date(new Date().getTime() + (1 * 30000)).toISOString()
+    window.example3.textContent = _in30seconds
+    </script>
+
+    <h2>Example 4</h2>
+    <shaf-timeago>
+      <time>2016-01-07T21:23:35.587Z</time>
+    </shaf-timeago>
+
+    <h2>Example 5</h2>
+    <shaf-timeago>
+      <time>2018-01-07T21:23:35.587Z</time>
+    </shaf-timeago>
+
+    <h2>Example 6</h2>
+    <shaf-timeago>
+      <time id="example6"></time>
+    </shaf-timeago>
+    <script>
+    var now = new Date().toISOString()
+    window.example6.textContent = now
+    </script>
+
+    <h2>Example 7</h2>
+    <shaf-timeago>
+      <time id="example7"></time>
+    </shaf-timeago>
+    <script>
+    var _50minutesago = new Date(new Date().getTime() - (50 * 60000)).toISOString()
+    window.example7.textContent = _50minutesago
+    </script>
+
+    <h2>Example 8</h2>
+    <shaf-timeago>
+      <time id="example8"></time>
+    </shaf-timeago>
+    <script>
+    var _in50minutes = new Date(new Date().getTime() + (50 * 60000)).toISOString()
+    window.example8.textContent = _in50minutes
+    </script>
+  </div>
+
+  <script src="https://unpkg.com/github-corner@2.0.2"></script>
+  <github-corner>
+    <a href="https://github.com/aaronshaf/shaf-timeago">GitHub</a>
+  </github-corner>
+</body>
