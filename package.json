@@ -1,6 +1,6 @@
 {
   "name": "shaf-timeago",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom element for 'ago' and 'in' time formatting",
   "main": "index.js",
   "scripts": {
