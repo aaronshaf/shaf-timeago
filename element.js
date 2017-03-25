@@ -1,17 +1,22 @@
-import createElementClass from 'create-element-class'
 import timeago from 'timeago.js'
 
-export default createElementClass({
+export default class TimeagoElement extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (this.rendered) { this.updateRendering() }
-  },
+  }
 
   connectedCallback() {
-    this.timeElement = this.querySelector('time')
-    if (!this.timeElement) {
-      console.warn('<time> element missing in shaf-timeago')
-      return
+    if (this.querySelector('time')) {
+      this.init()
+    } else {
+      window.requestAnimationFrame(() => {
+        this.init()
+      })
     }
+  }
+
+  init() {
+    this.timeElement = this.querySelector('time')
     this.timeElement.style.display = 'none'
     this.timeagoInstance = new timeago()
     this.span = document.createElement('span')
@@ -26,7 +31,7 @@ export default createElementClass({
     }
 
     this.updateRendering()
-  },
+  }
 
   updateRendering() {
     this.timeagoInstance.cancel()
@@ -34,7 +39,7 @@ export default createElementClass({
     const language = window.navigator.userLanguage || window.navigator.language
     this.timeagoInstance.render(this.span, language)
   }
-})
+}
 
 function trim (string) {
   return string.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
