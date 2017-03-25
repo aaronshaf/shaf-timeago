@@ -7,7 +7,7 @@
 
 ```html
 <!-- our custom element's source (1.7KB gzipped) -->
-<script src="https://unpkg.com/shaf-timeago@1.0.1"></script>
+<script src="https://unpkg.com/shaf-timeago@2.0.0"></script>
 ```
 
 ### Usage
